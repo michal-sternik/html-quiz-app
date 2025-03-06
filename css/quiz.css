@@ -141,6 +141,7 @@
     color: rgba(38, 182, 227, 1);
     line-height: 100%;
     letter-spacing: 0%;
+    pointer-events: all;
 
 
 
@@ -151,11 +152,26 @@
     cursor: pointer;
 }
 
-.answer.clicked {
+.answer.selected {
     background-color: rgba(38, 182, 227, 1);
     color: white;
 }
 
+.answer.correct {
+    background-color: rgba(0, 181, 18, 0.2);
+    color: rgba(0, 181, 18, 1);
+    border: 1px solid rgba(0, 181, 18, 1);
+}
+
+.answer.wrong {
+    background-color: rgba(217, 0, 0, 0.2);
+    color: rgba(217, 0, 0, 1);
+    border: 1px solid rgba(217, 0, 0, 1);
+}
+
+.answer.disabled {
+    pointer-events: none;
+}
 
 #quiz_button {
     background-color: rgba(201, 201, 201, 1);
@@ -171,12 +187,14 @@
     font-size: 32px;
     line-height: 100%;
     letter-spacing: 0%;
+    pointer-events: none;
 
 }
 
 #quiz_button.ready {
     background-color: rgba(38, 182, 227, 1);
     cursor: pointer;
+    pointer-events: all;
 
 }
 
