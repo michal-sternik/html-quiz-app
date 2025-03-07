@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .blue_circle {
@@ -41,4 +42,13 @@
     height: 300px;
     font-size: 45px;
   }
+}
+.text_result {
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #26b6e3;
 }
