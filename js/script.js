@@ -1,6 +1,7 @@
 const quiz_text = document.querySelector("#quiz_text");
 const answer_container = document.querySelector("#answers");
 const quiz_button = document.querySelector("#quiz_button");
+const questions_number = document.querySelector("#questions_number");
 
 function createAnswerButtons() {
   for (let index = 0; index < 4; index++) {
@@ -19,6 +20,7 @@ class Game {
     this.currentGameQuestions = Array.from(questions);
     this.correctAnswer = undefined;
     this.score = 0;
+    this.questionsNumberTab = [];
 
     this.handleButtonClick.bind(this);
     this.quizLoop.bind(this);
@@ -27,6 +29,7 @@ class Game {
   startGame() {
     createAnswerButtons();
     prepareQuizButton();
+    this.drawQuestionsNumbers();
     this.quizLoop();
   }
 
@@ -34,6 +37,9 @@ class Game {
     quiz_button.textContent = "Submit";
 
     if (this.currentGameQuestions.length > 0) {
+      const currentQuestionNumber = 10 - this.currentGameQuestions.length; // 10 - number of questions left gives us current question index
+      this.changeQuestionNumberStyle(currentQuestionNumber);
+
       const currentQuestion = this.getRandomQuestion(this.currentGameQuestions);
       console.log(this.currentGameQuestions);
       this.fillQuestion(currentQuestion.question);
@@ -94,6 +100,29 @@ class Game {
     Array.from(answer_container.children).forEach((button) => {
       button.classList.add("disabled");
     });
+  }
+  drawQuestionsNumbers() {
+    for (let index = 0; index < this.currentGameQuestions.length; index++) {
+      const questionNumber = document.createElement("div");
+      questionNumber.classList.add("question_number", "incoming");
+      questionNumber.textContent = index + 1;
+      questions_number.append(questionNumber);
+      this.questionsNumberTab.push(questionNumber);
+      questionNumber;
+    }
+  }
+  changeQuestionNumberStyle(currentQuestionNumber) {
+    const currentQuestionNumberElement =
+      this.questionsNumberTab[currentQuestionNumber];
+
+    if (currentQuestionNumberElement.previousElementSibling) {
+      currentQuestionNumberElement.previousElementSibling.classList.remove(
+        "current"
+      );
+    }
+
+    currentQuestionNumberElement.classList.remove("incoming");
+    currentQuestionNumberElement.classList.add("current");
   }
 }
 
