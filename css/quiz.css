@@ -236,6 +236,9 @@ body {
 }
 
 @media (max-width: 500px) {
+  #questions_number {
+    margin-top: 20px;
+  }
   .question_number {
     height: 25px;
     width: 25px;
