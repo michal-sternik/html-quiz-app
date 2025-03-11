@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   border-width: 0;
+  font-family: Poppins;
 }
 
 .container {
@@ -26,11 +27,11 @@
   font-size: 70px;
   font-weight: 400;
   color: white;
-  font-family: Poppins;
+
   text-align: center;
   cursor: pointer;
   text-decoration: none;
-  transform: translateY(50px);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .blue_circle:hover {
@@ -38,7 +39,6 @@
 }
 
 .text_result {
-  font-family: Poppins;
   font-weight: 400;
   font-size: 96px;
   line-height: 100%;
@@ -53,6 +53,7 @@
     height: 300px;
     font-size: 45px;
   }
+
   .text_result {
     font-size: 45px;
   }

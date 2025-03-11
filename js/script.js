@@ -1,3 +1,5 @@
+const NUMBER_OF_QUESTIONS = 10
+
 const quiz_text = document.querySelector("#quiz_text");
 const answer_container = document.querySelector("#answers");
 const quiz_button = document.querySelector("#quiz_button");
@@ -37,15 +39,13 @@ class Game {
     quiz_button.textContent = "Submit";
 
     if (this.currentGameQuestions.length > 0) {
-      const currentQuestionNumber = 10 - this.currentGameQuestions.length; // 10 - number of questions left gives us current question index
+      const currentQuestionNumber = NUMBER_OF_QUESTIONS - this.currentGameQuestions.length; // 10 - number of questions left gives us current question index
       this.changeQuestionNumberStyle(currentQuestionNumber);
 
       const currentQuestion = this.getRandomQuestion(this.currentGameQuestions);
-      console.log(this.currentGameQuestions);
       this.fillQuestion(currentQuestion.question);
       this.fillAnswers(currentQuestion.answers);
     } else {
-      console.log("koniec gry!");
       window.location.href = `/result.html?result=${this.score}`;
     }
   }
